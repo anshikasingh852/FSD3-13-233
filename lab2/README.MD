@@ -14,7 +14,8 @@ interact directly with the operating system (it direct connect with client OS ra
    - appendFile()
 - Directory Management
    - mkdir()
-   - rmdir()
+   - rmdir() - depricated
+   - rm
    - readdir()
 - Metadata/Information
    - stat()
