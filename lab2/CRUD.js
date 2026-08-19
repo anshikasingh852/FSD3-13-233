@@ -12,7 +12,15 @@ const getCart = async () => {
 
 const addToCart = async (item) => {
   const products = await getCart();
+ const productFound =products.find((p)=>p.id==item.id);
+ if(productFound){
+productFound.qty+=item.qty;
+console.log("Product in cart quantity updated");
+ }
+ else{
   products.push(item);
+  console.log("Product added succcessfully");
+ }
   await saveCart(products);
 };
 const showCart = () => {
@@ -22,7 +30,7 @@ const updateCart = () => {
   console.log("update quantity");
 };
 const deleteFromCart = () => {
-  console.log("delete item from cart");
+  console.log("show cart");
 };
 
 const main = async () => {
@@ -39,20 +47,18 @@ const main = async () => {
     switch (Number(choice)) {
       case 1:
         let data = await cin.question("Enter id,name,price,qty:");
-       let p=data.split(",");
-        console.table(p);
-        let q=p.map((item)=>item.trim());
-        console.table(q);
+        let p = data.split(",");
+        let q = p.map((item) => item.trim());
         let [id, name, price, qty] = q;
         console.log(id, name, price, qty);
-        const product={
-         id:Number(id),
-         name,
-         price:Number(price),
-         qty:Number(qty),
+        const product = {
+          id: Number(id),
+          name,
+          price: Number(price),
+          qty: Number(qty),
         };
-        console.log(product);
-        
+        // console.log(product);
+        await addToCart(product);
         break;
       case 2:
         showCart();
