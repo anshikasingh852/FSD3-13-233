@@ -17,5 +17,54 @@ package.json holds all the information related to install packages from npm
 - it also creates a folder node_modules automatically
 - node_modules holds the package/library files
 - generally we ignore the node_modules by .gitignore
+Nodemon - it restart the server automatically when file changes,to install
 
+> npm i nodemon -D
 
+Note: -D flag will install this package as developer dependency
+
+- to execute any program, update the package.json file then start the server as <b>npm run dev</b>
+- start -> it will execute the app on deployment
+- dev -> it will start server in development phase (only for developer)
+
+- res: it will return contents (json/html/plain) to the user/client 
+- req: it will retrive the information from client to the server 
+- server send also statusCodes to the client, that indicates the error/success message
+## Status Codes
+- 200 -> Ok
+- 201 -> created
+- 400 -> Badrequest
+- 403 -> forbidden 
+- 404 -> Not Found 
+- 500 -> Internal Server Error
+
+## Content Type 
+
+- text/plain
+- text/html
+- application/json
+- text/css
+
+the content type and status code can be send back to client by two ways
+
+1. res.writeHead
+2. res.setHeader
+3. res.statusCode
+
+## response as html file
+1. res.end(any html content/tag)
+2. html file
+ . read by create read stream
+ . pipe with res
+
+ ## JSON (javascript object notation)
+ server returns data only not html contents becoz html content will be written by content developer.The data is in json format.Json always stores data in key ,value, pair enclosed by curly bracket {}.Array can be stored by square brac[].One pair of curly bracket will represent one object and its property will be seperated by comma (,)
+ ```
+ {
+    id:1,
+    name:'Mobile',
+    price:25000,
+    rating:4.5,
+    review:200
+ }
+```

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mitticool - Indian Water Pot</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Georgia, serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fff8ed;
+            color: #4b2e1e;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 70px;
+            background: #7b3f22;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            color: #ffe4b5;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        nav a:hover {
+            color: #ffd28a;
+        }
+
+        .nav-btn {
+            background: #d9903d;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 600px;
+            padding: 70px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #fff3dc, #f5d5a4);
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #632f18;
+        }
+
+        .hero-text h1 span {
+            color: #b65c25;
+        }
+
+        .hero-text p {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #684838;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #8f481f;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #633016;
+        }
+
+        /* MATKA */
+        .pot-area {
+            width: 350px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pot {
+            width: 220px;
+            height: 280px;
+            background: linear-gradient(
+                90deg,
+                #9b4d25,
+                #d1844b,
+                #a95529
+            );
+            border-radius: 45% 45% 40% 40%;
+            position: relative;
+            box-shadow: 0 25px 35px rgba(70, 35, 15, 0.25);
+        }
+
+        /* Pot neck */
+        .pot::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 70px;
+            background: #a9572c;
+            top: -50px;
+            left: 60px;
+            border-radius: 30px 30px 10px 10px;
+        }
+
+        /* Pot opening */
+        .pot::after {
+            content: "";
+            position: absolute;
+            width: 105px;
+            height: 25px;
+            background: #6c321b;
+            top: -55px;
+            left: 57px;
+            border-radius: 50%;
+        }
+
+        .design {
+            position: absolute;
+            top: 110px;
+            left: 35px;
+            width: 150px;
+            height: 55px;
+            border-top: 5px solid #f5c16c;
+            border-bottom: 5px solid #f5c16c;
+            text-align: center;
+            padding-top: 10px;
+            color: #ffe0a3;
+            font-size: 22px;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 38px;
+            color: #632f18;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-family: Arial, sans-serif;
+            color: #806050;
+            margin-bottom: 45px;
+        }
+
+        /* BENEFITS */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(80, 40, 10, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            color: #71391f;
+        }
+
+        .card p {
+            font-family: Arial, sans-serif;
+            color: #756052;
+            line-height: 1.6;
+        }
+
+        /* TRADITION */
+        .tradition {
+            background: #71391f;
+            color: white;
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .tradition h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .tradition p {
+            max-width: 750px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            color: #ffe8c9;
+        }
+
+        /* PRODUCT */
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .product-info {
+            text-align: left;
+            max-width: 600px;
+        }
+
+        .product-info h2 {
+            margin-bottom: 20px;
+        }
+
+        .product-info p {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            color: #756052;
+            margin-bottom: 20px;
+        }
+
+        .product-info ul {
+            list-style: none;
+            margin-bottom: 25px;
+            font-family: Arial, sans-serif;
+        }
+
+        .product-info li {
+            margin: 12px 0;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 90px 20px;
+            text-align: center;
+            background: #e5a65a;
+            color: #4b2615;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-family: Arial, sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .cta .btn {
+            background: #632f18;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #3e2114;
+            color: #ffe4c4;
+            text-align: center;
+            padding: 25px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .pot-area {
+                margin-top: 40px;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .product {
+                flex-direction: column;
+            }
+
+            .product-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">🏺 MittiMatka</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#tradition">Tradition</a></li>
+            <li><a href="#product">Product</a></li>
+        </ul>
+
+        <a href="#buy" class="nav-btn">Shop Now</a>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h1>
+                Pure Water.<br>
+                <span>Pure Tradition.</span>
+            </h1>
+
+            <p>
+                Experience the natural way of cooling and storing water
+                with an authentic Indian earthen water pot — the traditional
+                Matka.
+            </p>
+
+            <a href="#product" class="btn">
+                Explore Matka →
+            </a>
+
+        </div>
+
+
+        <div class="pot-area">
+
+            <div class="pot">
+                <div class="design">ॐ</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BENEFITS -->
+    <section class="section" id="benefits">
+
+        <h2>Why Choose a Matka?</h2>
+
+        <p class="subtitle">
+            A traditional Indian solution for naturally refreshing water.
+        </p>
+
+        <div class="benefits">
+
+            <div class="card">
+                <div class="icon">💧</div>
+
+                <h3>Naturally Cool</h3>
+
+                <p>
+                    The porous clay allows natural evaporation,
+                    helping keep water pleasantly cool.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">🌱</div>
+
+                <h3>Eco Friendly</h3>
+
+                <p>
+                    Made from natural clay and reusable for everyday
+                    hydration.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">🏺</div>
+
+                <h3>Traditional</h3>
+
+                <p>
+                    A beautiful part of Indian culture and a tradition
+                    passed down through generations.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">✨</div>
+
+                <h3>Natural Taste</h3>
+
+                <p>
+                    Clay pots are loved for giving stored water a
+                    naturally fresh and earthy taste.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">🌍</div>
+
+                <h3>Sustainable</h3>
+
+                <p>
+                    A simple alternative to constantly buying
+                    disposable plastic bottles.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">❤️</div>
+
+                <h3>Made With Care</h3>
+
+                <p>
+                    Crafted in the spirit of Indian pottery traditions
+                    and local craftsmanship.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRADITION -->
+    <section class="tradition" id="tradition">
+
+        <h2>India's Timeless Water Tradition</h2>
+
+        <p>
+            For generations, Indian households have used earthen pots
+            to store drinking water. The humble Matka represents a
+            connection between nature, culture and everyday life.
+            Its simple design uses the natural properties of clay
+            instead of electricity to help cool water.
+        </p>
+
+    </section>
+
+
+    <!-- PRODUCT -->
+    <section class="section product" id="product">
+
+        <div class="pot-area">
+
+            <div class="pot">
+                <div class="design">ॐ</div>
+            </div>
+
+        </div>
+
+
+        <div class="product-info">
+
+            <h2>Traditional Indian Matka</h2>
+
+            <p>
+                Bring the warmth of Indian tradition into your home
+                with a handcrafted earthen water pot.
+            </p>
+
+            <ul>
+                <li>✓ Natural terracotta clay</li>
+                <li>✓ 10 litre capacity</li>
+                <li>✓ Naturally cools water</li>
+                <li>✓ Eco-friendly design</li>
+                <li>✓ Traditional handcrafted appearance</li>
+                <li>✓ Suitable for everyday use</li>
+            </ul>
+
+            <a href="#buy" class="btn">
+                Buy Matka
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta" id="buy">
+
+        <h2>Bring Tradition Home 🏺</h2>
+
+        <p>
+            Choose the natural way to store and enjoy your drinking water.
+        </p>
+
+        <a href="#" class="btn">
+            Order Now — ₹999
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 MittiMatka | Crafted with Indian Tradition ❤️
+        </p>
+    </footer>
+
+</body>
+</html>
+

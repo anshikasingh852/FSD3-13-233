@@ -4,7 +4,8 @@
   "description": "localhost - URL\r 127.0.0.1 - IP address\r ctrl+c - stop the server\r every request from client has a pair of (request,response)\r ## npm - node package manager\r used to install ,run,uninstall any program/project and package\r - npm install <packageName>\r - npm uninstall <packageName>",
   "main": "prg1.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon prg4.js"    
   },
   "keywords": [],
   "author": "",
