@@ -68,3 +68,11 @@ the content type and status code can be send back to client by two ways
     review:200
  }
 ```
+## Headers
+headers is use to help the client,the type of data sent by the server.It may be html file,json file,plain text files,css files any tokens (for login)
+1. text/plain -> text file
+2. text/html -> html contents/file
+3. application/json -> json contents/file
+4. text/css -> stylesheet
+5. application/form-data -> for uploading file
+6. application/auth -> for tokens
