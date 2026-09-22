@@ -1,5 +1,5 @@
 import http from "http";
-import { getAllProducts } from "./products.js";
+import { getAllProducts, addProduct } from "./products.js";
 import { count } from "console";
 
 const server = http.createServer((req, res) => {
@@ -22,9 +22,9 @@ const server = http.createServer((req, res) => {
     });
     req.on("end", () => {
       const product = JSON.parse(body);
-      console.log("recieved product:", product);
+      const item = addProduct(product);
       res.statusCode = 201;
-      res.end(JSON.stringify({ msg: "product added", product }));
+      res.end(JSON.stringify({ msg: "product added", data: item }));
     });
   } else if (req.url.startsWith("/products/") === "/" && req.method === "PUT") {
     const productID = req.url.split("/").pop();
