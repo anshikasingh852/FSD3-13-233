@@ -76,3 +76,12 @@ headers is use to help the client,the type of data sent by the server.It may be 
 4. text/css -> stylesheet
 5. application/form-data -> for uploading file
 6. application/auth -> for tokens
+## GET
+no parameters will pass to the server then we receive all items
+## POST
+to add records we pass the value from body section in json format of api tester(echo api)
+## DELETE
+to delete any product we pass parameter that is id of the product from url
+## UPDATE
+to update any product.
+we pass id from url and data to update from body

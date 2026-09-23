@@ -23,3 +23,24 @@ export const deleteProduct=(pid)=>{
   console.log("products remaining:",products);
   return true;
 };
+//create a function update any product given pid call this function into prg6.js and verify its working by echo api
+  
+
+export const updateProduct=(pid)=>{
+  const item=products.findIndex((prd)=>prd.id===pid);
+  if(item==-1){
+    return false;
+  }
+updateItem.id=pid;
+ products[item]=updateItem;
+  return updateItem;
+};
+
+export const getProductById=(pid)=>{
+  const index=products.findIndex((prd)=>prd.id===pid);
+return false;
+if (index==-1){
+  return false;
+}
+return products[index];
+};
